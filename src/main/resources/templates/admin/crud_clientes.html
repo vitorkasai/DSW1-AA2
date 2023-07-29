@@ -9,7 +9,7 @@
 <body>
 	<div layout:fragment="content" th:remove="tag">
 		<h1 th:text="#{admin.crud.clientes}"></h1>
-		CRIE AQUI
+		<a th:href="@{/usuarios/cadastrar}" th:text="#{cliente.crud.adicionarCliente}"></a>
 		<table class="table table-striped table-hover table-sm">
 			<thead>
 				<tr>
@@ -36,11 +36,11 @@
 					
 					<td colspan="2">
 						<a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}" role="button">
-							<span th:text="#{link.editar.label}" aria-hidden="true">Editar</span>
+							<span th:text="#{link.editar.label}" aria-hidden="true"></span>
 						</a>
-						<button th:id="'btn_usuarios/excluir/' + ${usuario.id}" type="button">
-							<span th:text="#{link.excluir.label}" aria-hidden="true">Excluir</span>
-						</button>
+						<a th:href="@{/usuarios/excluir/{id}(id=${usuario.id})}" role="button">
+							<span th:text="#{link.excluir.label}" aria-hidden="true"></span>
+						</a>
 					</td>
 					
 				</tr>

@@ -28,20 +28,21 @@ public class UsuarioController {
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Usuario usuario) {
-		return "usuario/cadastro";
+		System.out.println("Passei por /usuarios/cadastrar");
+		return "user/cadastro";
 	}
 	
 	@GetMapping("/listar")
 	public String listar(ModelMap model) {
 		model.addAttribute("usuarios",service.buscarTodos());
-		return "usuario/lista";
+		return "admin/crud_clientes";
 	}
 	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attr) {
 		
 		if (result.hasErrors()) {
-			return "usuario/cadastro";
+			return "user/cadastro";
 		}
 
 		System.out.println("password = " + usuario.getPassword());
@@ -49,7 +50,7 @@ public class UsuarioController {
 		usuario.setPassword(encoder.encode(usuario.getPassword()));
 		service.salvar(usuario);
 		attr.addFlashAttribute("sucess", "Usuário inserido com sucesso.");
-		return "redirect:/usuarios/listar";
+		return "redirect:/admin/crud-clientes";
 	}
 	
 	@GetMapping("/editar/{id}")
