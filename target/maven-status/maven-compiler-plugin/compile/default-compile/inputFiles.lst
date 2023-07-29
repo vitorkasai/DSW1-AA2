@@ -9,6 +9,7 @@
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/security/UsuarioDetailsServiceImpl.java
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/config/WebSecurityConfig.java
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/validation/UniqueCNPJ.java
+/home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/LocadoraController.java
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/AdminController.java
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/UsuarioController.java
 /home/kasai/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/service/spec/ILocadoraService.java

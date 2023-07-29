@@ -28,12 +28,12 @@ public class AdminController {
 		model.addAttribute("usuarios",service.buscarTodos());
 		return "admin/crud_clientes";
 	}
-	/* 
+	
 	@GetMapping("/crud-locadoras")
-		public String listarClientes(ModelMap model) {
-			System.out.println("Passei por /admin/crud-clientes");
-			model.addAttribute("usuarios",service.buscarTodos());
-			return "admin/crud_clientes";
-		}
-	*/
+	public String listarLocadoras(ModelMap model) {
+		System.out.println("Passei por /admin/crud-locadoras");
+		model.addAttribute("locadoras",service.buscarTodos());
+		return "admin/crud_locadoras";
+	}
+	
 }
