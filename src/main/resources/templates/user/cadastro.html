@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <section>
+        <nav>
+            <ul>
+                <li>
+                    <i></i>
+                    <span>#{usuario.cadastrar.label}</span>
+                </li>
+            </ul>
+            <a th:href="@{/usuarios/listar}" role="button">
+                <span title="Listar" aria-hidden="true"></span>
+                <span>#{usuario.listar.label}</span>
+            </a>
+        </nav>
+
+        <div id="cadastro">
+            <div></div>
+            <form th:action="${usuario.id == null} ? @{/usuarios/salvar} : @{/usuarios/editar}" th:object="${usuario}"
+                method="POST">
+                <div>
+                    <div>
+                        <label for="username" th:text="#{usuario.username.label}"></label>
+                        <input type="text" id="username" th:placeholder="#{usuario.username.label}"
+                            autofocus="autofocus" th:field="*{username}" />
+                        <div>
+                            <span th:errors="*{username}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" th:text="#{usuario.password.label}"></label>
+                        <input type="text" id="password" th:placeholder="#{usuario.password.label}"
+                            autofocus="autofocus" th:field="*{password}" th:readonly="${usuario.id != null}" />
+                        <div>
+                            <span th:errors="*{password}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="name" th:text="#{usuario.name.label}"></label>
+                        <input type="text" id="name" th:field="*{name}" th:placeholder="#{usuario.name.label}"
+                            autofocus="autofocus" />
+                        <div>
+                            <span th:errors="*{name}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="CPF" th:text="#{usuario.CPF.label}"></label>
+                        <input type="text" id="CPF" th:field="*{CPF}" autofocus="autofocus" placeholder="___.___.___-__"
+                            data-mask="000.000.000-00" data-mask-reverse="true" />
+                        <div>
+                            <span th:errors="*{CPF}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="role" th:text="#{usuario.role.label}"></label>
+                        <select id="role" th:field="*{role}">
+                            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                            <option value="ROLE_USER">ROLE_USER</option>
+                        </select>
+                        <div>
+                            <span th:errors="*{role}"></span>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="id" th:field="*{id}" />
+                <button type="submit" th:text="#{button.salvar.label}"></button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
