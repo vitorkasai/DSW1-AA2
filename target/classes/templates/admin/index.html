@@ -9,11 +9,10 @@
 <body>
 	<div layout:fragment="content" th:remove="tag">
 		<h1 th:text="#{admin.index.title}"></h1>
-		<h1>
+		<h3>
 			<span th:text="#{home.hello}"></span>
 			<span th:inline="text">[[${#httpServletRequest.remoteUser}]]!</span>
-		</h1>
-		CRIE AQUI
+		</h3>
 		<ul>
 			<li><a th:href="@{/admin/crud-clientes}"><span th:text="#{admin.crud.clientes}"></a></li>
 			<li><a th:href="@{/admin/crud-locadoras}"><span th:text="#{admin.crud.locadoras}"></a></li>

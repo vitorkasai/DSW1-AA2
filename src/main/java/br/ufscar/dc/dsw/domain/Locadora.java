@@ -37,8 +37,6 @@ public class Locadora {
     @Column(nullable = false, length = 60)
 	private String cidade;
 
-    //@ManyToMany(mappedBy = "locadora");
-
     public Long getId() {
 		return id;
 	}
