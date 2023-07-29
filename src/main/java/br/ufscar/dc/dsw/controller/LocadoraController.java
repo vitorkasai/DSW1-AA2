@@ -34,13 +34,14 @@ public class LocadoraController {
 	
 	@GetMapping("/listar")
 	public String listar(ModelMap model) {
+		System.out.println("Passei por /locadoras/listar");
 		model.addAttribute("locadoras",service.buscarTodos());
 		return "admin/crud_locadoras";
 	}
 	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Locadora locadora, BindingResult result, RedirectAttributes attr) {
-		
+		System.out.println("Passei por /locadoras/salvar");
 		if (result.hasErrors()) {
 			return "locadora/cadastro";
 		}
@@ -78,6 +79,7 @@ public class LocadoraController {
 	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+		System.out.println("Passei por /locadoras/excluir");
 		service.excluir(id);
 		model.addAttribute("sucess", "Locadora excluída com sucesso.");
 		return listar(model);
