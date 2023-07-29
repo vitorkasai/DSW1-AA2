@@ -45,8 +45,6 @@ public class Usuario{
 
     @Column(nullable = false)
     private boolean enabled;
-
-	@Column(nullable = false)
 	
     public Long getId() {
 		return id;

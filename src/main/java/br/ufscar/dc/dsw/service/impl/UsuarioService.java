@@ -29,7 +29,7 @@ public class UsuarioService implements IUsuarioService {
 	public Usuario buscarPorId(Long id) {
 		return dao.findById(id.longValue());
 	}
-
+	
 	@Transactional(readOnly = true)
 	public List<Usuario> buscarTodos() {
 		return dao.findAll();
