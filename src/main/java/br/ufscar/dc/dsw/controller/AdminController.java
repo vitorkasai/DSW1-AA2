@@ -24,7 +24,7 @@ public class AdminController {
     
     @GetMapping("/crud-clientes")
 	public String listarClientes(ModelMap model) {
-		System.out.println("Passei por aqui");
+		System.out.println("Passei por /admin/crud-clientes");
 		model.addAttribute("usuarios",service.buscarTodos());
 		return "admin/crud_clientes";
 	}

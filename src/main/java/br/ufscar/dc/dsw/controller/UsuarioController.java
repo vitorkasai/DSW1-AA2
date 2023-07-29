@@ -54,13 +54,16 @@ public class UsuarioController {
 	
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+		System.out.println("Passei por /usuarios/editar/id especifico");
 		model.addAttribute("usuario", service.buscarPorId(id));
-		return "usuario/cadastro";
+		return "user/cadastro";
 	}
 	
 	@PostMapping("/editar")
 	public String editar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attr) {
 		
+		System.out.println("Passei por /usuarios/editar");
+
 		if (result.hasErrors()) {
 			return "usuario/cadastro";
 		}

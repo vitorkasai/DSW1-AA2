@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
-    <meta charset="UTF-8" />
+<title th:text="#{cadastro.cliente.nome}"></title>
 </head>
 
 <body>
     <section>
+        <h1 th:text="#{cadastro.cliente.nome}"></h1>
+        <!--        
         <nav>
             <ul>
                 <li>
@@ -14,43 +17,35 @@
                     <span>#{usuario.cadastrar.label}</span>
                 </li>
             </ul>
+            
             <a th:href="@{/usuarios/listar}" role="button">
                 <span title="Listar" aria-hidden="true"></span>
                 <span>#{usuario.listar.label}</span>
             </a>
         </nav>
-
+        -->
         <div id="cadastro">
-            <div></div>
             <form th:action="${usuario.id == null} ? @{/usuarios/salvar} : @{/usuarios/editar}" th:object="${usuario}"
                 method="POST">
                 <div>
                     <div>
-                        <label for="username" th:text="#{usuario.username.label}"></label>
-                        <input type="text" id="username" th:placeholder="#{usuario.username.label}"
+                        <label for="username" th:text="#{cadastro.cliente.email}"></label>
+                        <input type="email" id="username" th:placeholder="#{cadastro.cliente.email}"
                             autofocus="autofocus" th:field="*{username}" />
                         <div>
                             <span th:errors="*{username}"></span>
                         </div>
                     </div>
                     <div>
-                        <label for="password" th:text="#{usuario.password.label}"></label>
-                        <input type="text" id="password" th:placeholder="#{usuario.password.label}"
+                        <label for="password" th:text="#{cadastro.cliente.senha}"></label>
+                        <input type="text" id="password" th:placeholder="#{cadastro.cliente.senha}"
                             autofocus="autofocus" th:field="*{password}" th:readonly="${usuario.id != null}" />
                         <div>
                             <span th:errors="*{password}"></span>
                         </div>
                     </div>
                     <div>
-                        <label for="name" th:text="#{usuario.name.label}"></label>
-                        <input type="text" id="name" th:field="*{name}" th:placeholder="#{usuario.name.label}"
-                            autofocus="autofocus" />
-                        <div>
-                            <span th:errors="*{name}"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="CPF" th:text="#{usuario.CPF.label}"></label>
+                        <label for="CPF" th:text="#{cadastro.cliente.cpf}"></label>
                         <input type="text" id="CPF" th:field="*{CPF}" autofocus="autofocus" placeholder="___.___.___-__"
                             data-mask="000.000.000-00" data-mask-reverse="true" />
                         <div>
@@ -58,7 +53,19 @@
                         </div>
                     </div>
                     <div>
-                        <label for="role" th:text="#{usuario.role.label}"></label>
+                        <label for="nome" th:text="#{cadastro.cliente.nomeCliente}"></label>
+                        <input type="text" id="nome" th:field="*{nome}" th:placeholder="#{cadastro.cliente.nomeCliente}"
+                            autofocus="autofocus" />
+                        <div>
+                            <span th:errors="*{nome}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="telefone" th:text="#{cadastro.cliente.telefone}"></label>
+                        <input type="tel" id="telefone" th:field="*{telefone}" placeholder="(__) _____-____" autofocus="autofocus" />
+                    </div>
+                    <div>
+                        <label for="role" th:text="#{cadastro.cliente.papel}"></label>
                         <select id="role" th:field="*{role}">
                             <option value="ROLE_ADMIN">ROLE_ADMIN</option>
                             <option value="ROLE_USER">ROLE_USER</option>
@@ -69,9 +76,10 @@
                     </div>
                 </div>
                 <input type="hidden" id="id" th:field="*{id}" />
-                <button type="submit" th:text="#{button.salvar.label}"></button>
+                <button type="submit" th:text="#{cadastro.cliente.salvar}"></button>
             </form>
         </div>
+        
     </section>
 </body>
 
