@@ -31,7 +31,7 @@ public class LocadoraController {
 		System.out.println("Passei por /locadoras/cadastrar");
 		return "locadora/cadastro";
 	}
-	
+	//LISTAGEM DO CRUD
 	@GetMapping("/listar")
 	public String listar(ModelMap model) {
 		System.out.println("Passei por /locadoras/listar");

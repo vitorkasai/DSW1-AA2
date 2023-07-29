@@ -3,14 +3,17 @@
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
 <head>
-    <title>Index</title>
+    <title>Página Inicial</title>
 </head>
+
 <body>
 <div layout:fragment="content" th:remove="tag">
     <h1 th:text="#{index.message.1}"></h1>
     <p th:text="#{index.message.2}"></p>
+    <p th:text="#{index.message.3}"></p>
     <ul>
-        <li><a th:href="@{/home}"><span th:text="#{index.message.3}"></a></li>
+        <li><a th:href="@{/index/listagem}"><span th:text="#{index.message.5}"></span></a></li>
+        <li><a th:href="@{/home}"><span th:text="#{index.message.4}"></span></a></li>
     </ul>
 </div>
 </body>
