@@ -64,6 +64,20 @@
                         <label for="telefone" th:text="#{cadastro.cliente.telefone}"></label>
                         <input type="tel" id="telefone" th:field="*{telefone}" placeholder="(__) _____-____" autofocus="autofocus" />
                     </div>
+                    <label for="cliente-sexo-container" th:text="#{cadastro.cliente.sexo}"></label>
+                    <div id="cliente-sexo-container" style="display: inline-block;">
+                        <input th:if="${usuario.sexo == 'M'}" type="radio" name="sexo" id="sexoUsuario" value="M" th:text="#{cadastro.cliente.sexo.masculino}" checked>
+                        <input th:unless="${usuario.sexo == 'M'}" type="radio" name="sexo" id="sexoUsuario" value="M" th:text="#{cadastro.cliente.sexo.masculino}">
+
+                        <input th:if="${usuario.sexo == 'F'}" type="radio" name="sexo" id="sexoUsuario" value="M" th:text="#{cadastro.cliente.sexo.feminino}" checked>
+                        <input th:unless="${usuario.sexo == 'F'}" type="radio" name="sexo" id="sexoUsuario" value="M" th:text="#{cadastro.cliente.sexo.feminino}">
+
+                    </div>
+
+                    <div>
+                        <label for="dataNascimento" th:text="#{cadastro.cliente.dataNascimento}"></label>
+                        <input type="date" id="dataNascimento" th:field="*{dataNascimento}" th:value="${#dates.format(dataNascimento, 'yyyy-MM-dd')}" autofocus="autofocus">
+                    </div>
                     <div>
                         <label for="role" th:text="#{cadastro.cliente.papel}"></label>
                         <select id="role" th:field="*{role}">
