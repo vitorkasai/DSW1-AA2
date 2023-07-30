@@ -9,21 +9,7 @@
 <body>
     <section>
         <h1 th:text="${locadora.id == null} ? #{cadastro.locadora.cadastrar.titulo} : #{cadastro.locadora.editar.titulo}"></h1>
-        <!--        
-        <nav>
-            <ul>
-                <li>
-                    <i></i>
-                    <span>#{usuario.cadastrar.label}</span>
-                </li>
-            </ul>
-            
-            <a th:href="@{/usuarios/listar}" role="button">
-                <span title="Listar" aria-hidden="true"></span>
-                <span>#{usuario.listar.label}</span>
-            </a>
-        </nav>
-        -->
+        
         <div id="cadastro">
             <form th:action="${locadora.id == null} ? @{/locadoras/salvar} : @{/locadoras/editar}" th:object="${locadora}"
                 method="POST">
@@ -62,9 +48,10 @@
                         </div>
                     </div>
                     <div>
-                        <label for="cidade" th:text="#{cadastro.locadora.cidade}"></label>
-                        <input type="text" id="cidade" th:field="*{cidade}" th:placeholder="#{cadastro.locadora.cidade}"
-                            autofocus="autofocus" />
+                        <label for="selectCidade" th:text="#{cadastro.locadora.cidade}"></label>
+                        <select th:field="*{cidade}" id="selectCidade">
+                            <option th:value="cidadeInvalida" th:text="#{cadastro.locadora.selecionarCidade}" selected id="cidadeInvalida" style="background-color: lightgray;"></option>
+                        </select>
                         <div>
                             <span th:errors="*{cidade}"></span>
                         </div>
@@ -76,6 +63,34 @@
         </div>
         
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cidadeSelect = document.getElementById('selectCidade');
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/locadoras/cidades', true); // Mapeie essa URL no seu controlador para retornar o conteúdo do arquivo de cidades
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var cidades = xhr.responseText.split('\n');
+                    for (var i = 0; i < cidades.length; i++) {
+                        var option = document.createElement('option');
+                        option.text = cidades[i];
+                        cidadeSelect.add(option);
+                    }
+
+                    cidadeSelect.addEventListener('change', function() {
+                        var cidadeSelecionada = cidadeSelect.value;
+                        if (cidadeSelecionada !== 'cidadeInvalida') {
+                            var opcaoCidadeInvalida = document.getElementById('cidadeInvalida');
+                            opcaoCidadeInvalida.disabled = true;
+                        }
+                    });
+                }
+            };
+            xhr.send();
+        });
+        
+    </script>
 </body>
 
 </html>
