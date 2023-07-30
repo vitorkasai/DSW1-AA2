@@ -13,8 +13,6 @@
             <form th:action="@{/locacoes/salvar}" th:object="${locacao}" method="POST">
                 <div>
                     <h1>TESTE</h1>
-                    <h1 th:text="*{usuario}"></h1>
-                    
                     <input type="hidden" id="usuario.id" th:field="*{usuario.id}" />
                     <div>
                         <label for="locadorasSelect" th:text="#{locadora}"></label>

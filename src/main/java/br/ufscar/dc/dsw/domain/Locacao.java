@@ -18,6 +18,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -35,11 +38,13 @@ public class Locacao{
 
     @NotNull()
 	@ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
     @NotNull
 	@ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "locadora_id")
 	private Locadora locadora;
 

@@ -63,25 +63,31 @@ public class BicicletaMvcApplication {
 			Locadora l1 = new Locadora();
 			l1.setUsername("locadora1@gmail.com");
 			l1.setPassword(encoder.encode("locadora"));
+			l1.setRole("ROLE_LOCADORA");
 			l1.setCNPJ("55.789.390/0008-99");
 			l1.setNome("Locadora A");
 			l1.setCidade("São Carlos");
+			l1.setEnabled(true);
 			locadoraDAO.save(l1);
 
 			Locadora l2 = new Locadora();
 			l2.setUsername("locadora2@gmail.com");
 			l2.setPassword(encoder.encode("locadora"));
+			l2.setRole("ROLE_LOCADORA");
 			l2.setCNPJ("32.106.536/0001-82");
 			l2.setNome("Locadora B");
 			l2.setCidade("Araraquara");
+			l2.setEnabled(true);
 			locadoraDAO.save(l2);
 
 			Locadora l3 = new Locadora();
 			l3.setUsername("locadora3@gmail.com");
 			l3.setPassword(encoder.encode("locadora"));
+			l3.setRole("ROLE_LOCADORA");
 			l3.setCNPJ("71.150.470/0001-40");
 			l3.setNome("Locadora C");
 			l3.setCidade("Lins");
+			l3.setEnabled(true);
 			locadoraDAO.save(l3);
 
 			//Criando Locacoes Existentes

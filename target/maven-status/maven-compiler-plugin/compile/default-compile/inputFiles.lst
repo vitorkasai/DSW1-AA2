@@ -8,12 +8,14 @@
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/validation/UniqueCNPJ.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/service/spec/ILocadoraService.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/service/spec/IUsuarioService.java
+/home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/security/LocadoraDetailsServiceImpl.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/dao/IUsuarioDAO.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/dao/ILocacaoDAO.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/validation/UniqueCNPJValidator.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/domain/Locadora.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/domain/Locacao.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/service/impl/UsuarioService.java
+/home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/security/LocadoraDetails.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/domain/Usuario.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/config/MvcConfig.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/security/UsuarioDetails.java
@@ -21,5 +23,6 @@
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/config/WebSecurityConfig.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/dao/ILocadoraDAO.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/LocacaoController.java
+/home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/LocadoraUserController.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/controller/UsuarioController.java
 /home/leonardo/Web1_Geral/DSW1-AA2/src/main/java/br/ufscar/dc/dsw/service/spec/ILocacaoService.java

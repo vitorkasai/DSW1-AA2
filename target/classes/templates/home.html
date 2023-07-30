@@ -22,6 +22,9 @@
 		<div sec:authorize="hasRole('ROLE_USER')">
 			<p><a th:href="@{/user}"><span th:text="#{home.message.3}"></a></p>
 		</div>
+		<div sec:authorize="hasRole('ROLE_LOCADORA')">
+			<p><a th:href="@{/locadora}"><span th:text="#{home.message.4}"></a></p>
+		</div>
 	</div>
 </body>
 </html>

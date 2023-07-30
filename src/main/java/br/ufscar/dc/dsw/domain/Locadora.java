@@ -39,6 +39,12 @@ public class Locadora {
     @Column(nullable = false, length = 60)
 	private String cidade;
 
+	@Column(nullable = false, length = 45)
+    private String role;
+
+	@Column(nullable = false)
+    private boolean enabled;
+
 	@OneToMany(mappedBy = "locadora")
 		private List<Locacao> locacoes;
 	
@@ -77,5 +83,21 @@ public class Locadora {
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public String getRole() {
+		return role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }

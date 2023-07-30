@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import br.ufscar.dc.dsw.security.UsuarioDetailsServiceImpl;
+import br.ufscar.dc.dsw.security.LocadoraDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -17,6 +18,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 public UserDetailsService userDetailsService() {
    return new UsuarioDetailsServiceImpl();
 }
+
+@Bean
+public UserDetailsService LocDetailsService() {
+   return new LocadoraDetailsServiceImpl();
+}
+
 
 @Bean
 public BCryptPasswordEncoder passwordEncoder() {
@@ -32,9 +39,18 @@ public DaoAuthenticationProvider authenticationProvider() {
    return authProvider;
 }
 
+@Bean
+    public DaoAuthenticationProvider locadoraAuthenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(LocDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
    auth.authenticationProvider(authenticationProvider());
+   auth.authenticationProvider(locadoraAuthenticationProvider());
 }
 
 @Override
@@ -45,6 +61,7 @@ protected void configure(HttpSecurity http) throws Exception {
           	.antMatchers("/image/**", "/webjars/**").permitAll()
    		.antMatchers("/admin/**").hasRole("ADMIN")
    		.antMatchers("/user/**").hasRole("USER")
+		.antMatchers("/locadora/**").hasRole("LOCADORA")
    		.anyRequest().authenticated()
 		   
    	.and()
