@@ -87,10 +87,10 @@ public class LocadoraController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+	public String excluir(@PathVariable("id") Long id, ModelMap model, RedirectAttributes attr) {
 		System.out.println("Passei por /locadoras/excluir");
 		service.excluir(id);
-		model.addAttribute("sucess", "Locadora excluída com sucesso.");
+		attr.addFlashAttribute("sucess", "Locadora excluída com sucesso.");
 		return "redirect:/locadoras/listar";
 	}
 
