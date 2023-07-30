@@ -30,7 +30,7 @@ public class Locadora {
 
 	@NotBlank
     @UniqueCNPJ (message = "{Unique.locadora.CNPJ}")
-	@Size(min = 18, max = 18 /*,message = "{Size.editora.CNPJ}"*/)
+	@Size(min = 14, max = 14 /*,message = "{Size.editora.CNPJ}"*/)
     private String CNPJ;
 
     @Column(nullable = false, length = 60)
@@ -70,8 +70,9 @@ public class Locadora {
 		return CNPJ;
 	}
 	public void setCNPJ(String CNPJ) {
-		this.CNPJ = CNPJ;
-	}
+        // Remover pontos e traços do CNPJ
+        this.CNPJ = CNPJ != null ? CNPJ.replaceAll("[^0-9]", "") : null;
+    }
     public String getNome() {
 		return nome;
 	}
