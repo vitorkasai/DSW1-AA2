@@ -75,7 +75,7 @@ public class LocadoraController {
 		
 		System.out.println("Passei por /locadoras/editar");
 
-		if (result.hasErrors()) {
+		if (result.getFieldErrorCount() > 1 || result.getFieldError("CNPJ") == null) {
 			return "locadora/cadastro";
 		}
 
@@ -91,7 +91,7 @@ public class LocadoraController {
 		System.out.println("Passei por /locadoras/excluir");
 		service.excluir(id);
 		model.addAttribute("sucess", "Locadora excluída com sucesso.");
-		return listar(model);
+		return "redirect:/locadoras/listar";
 	}
 
 	@GetMapping("/cidades")
