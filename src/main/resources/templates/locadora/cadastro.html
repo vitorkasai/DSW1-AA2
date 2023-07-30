@@ -48,9 +48,12 @@
                         </div>
                     </div>
                     <div>
+                        <input th:if="${locadora.id != null}" type="hidden" id="cidadeLocadoraEditada" th:value="${locadora.cidade}">
+
                         <label for="selectCidade" th:text="#{cadastro.locadora.cidade}"></label>
                         <select th:field="*{cidade}" id="selectCidade">
-                            <option th:value="cidadeInvalida" th:text="#{cadastro.locadora.selecionarCidade}" selected id="cidadeInvalida" style="background-color: lightgray;"></option>
+                            <option th:if="${locadora.id == null}"th:value="cidadeInvalida" th:text="#{cadastro.locadora.selecionarCidade}" selected id="cidadeInvalida" style="background-color: lightgray;"></option>
+                            
                         </select>
                         <div>
                             <span th:errors="*{cidade}"></span>
@@ -67,6 +70,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var cidadeSelect = document.getElementById('selectCidade');
+            var cidadeHiddenInput = document.getElementById('cidadeLocadoraEditada'); // Substitua pelo ID correto do input hidden
             var xhr = new XMLHttpRequest();
             xhr.open('GET', '/locadoras/cidades', true); // Mapeie essa URL no seu controlador para retornar o conteúdo do arquivo de cidades
             xhr.onreadystatechange = function() {
@@ -76,6 +80,16 @@
                         var option = document.createElement('option');
                         option.text = cidades[i];
                         cidadeSelect.add(option);
+                    }
+
+                    // Verificar a cidade selecionada no input hidden e marcar como selecionada no select
+                    var cidadeSelecionada = cidadeHiddenInput.value;
+                    var options = cidadeSelect.options;
+                    for (var j = 0; j < options.length; j++) {
+                        if (options[j].text === cidadeSelecionada) {
+                            options[j].selected = true;
+                            break;
+                        }
                     }
 
                     cidadeSelect.addEventListener('change', function() {
