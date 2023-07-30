@@ -47,20 +47,16 @@ public class LocacaoController {
 
 	@GetMapping("/cadastrar")
 	public String cadastrar(Locacao locacao, ModelMap model) {
-		System.out.println("Passei por /locacoes/cadastrar");
 		model.addAttribute("horariosDisponiveis", popularHorasDisponiveis());
+		System.out.println("Passei por /locacoes/cadastrar");
 		model.addAttribute("locadoras", serviceLocadora.buscarTodos());
+		System.out.println("vai pro return");
 		return "locacao/cadastro";
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(@Valid Locacao locacao, BindingResult result, RedirectAttributes attr) {
-		
-		if (result.hasErrors()) {
-			return "locacoes/cadastrar";
-		}
-
-		
+	public String salvar(Locacao locacao, BindingResult result, RedirectAttributes attr) {
+		System.out.println("Passei por /locacoes/salvar");
 		serviceLocacao.salvar(locacao);
 		attr.addFlashAttribute("sucess", "Locação inserida com sucesso.");
 		return "redirect:/user/index";

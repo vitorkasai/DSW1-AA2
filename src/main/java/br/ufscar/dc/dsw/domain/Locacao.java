@@ -73,5 +73,10 @@ public class Locacao{
     public void setLocadora(Locadora locadora){
         this.locadora = locadora;
     }
-    
+    public Long getIdUsuario(){
+        return usuario.getId();
+    }
+    public Long getIdLocadora(){
+        return locadora.getId();
+    }
 }
