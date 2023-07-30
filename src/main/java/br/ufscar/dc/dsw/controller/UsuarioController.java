@@ -77,9 +77,9 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		service.excluir(id);
-		model.addAttribute("sucess", "Usuário excluído com sucesso.");
-		return listar(model);
+		attr.addFlashAttribute("sucess", "Usuário excluído com sucesso.");
+		return "redirect:/usuarios/listar";
 	}
 }

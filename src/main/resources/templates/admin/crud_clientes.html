@@ -10,6 +10,9 @@
 	<div layout:fragment="content" th:remove="tag">
 		<h1 th:text="#{admin.crud.clientes}"></h1>
 		<a th:href="@{/usuarios/cadastrar}" th:text="#{cliente.crud.adicionarCliente}"></a>
+		<div th:if="${sucess}" class="alert alert-success">
+			<span th:text="${sucess}"></span>
+		</div>
 		<table class="table table-striped table-hover table-sm">
 			<thead>
 				<tr>
@@ -49,5 +52,7 @@
 		<a class="btn btn-primary" type="button"
 				href="javascript:history.back()"><span th:text="#{previous.message}"></span></a>
 	</div>
+
+	
 </body>
 </html>

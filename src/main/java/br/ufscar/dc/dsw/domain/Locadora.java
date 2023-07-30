@@ -29,7 +29,7 @@ public class Locadora {
     private String password;
 
 	@NotBlank
-    @UniqueCNPJ (message = "{Unique.editora.CNPJ}")
+    @UniqueCNPJ (message = "{Unique.locadora.CNPJ}")
 	@Size(min = 18, max = 18 /*,message = "{Size.editora.CNPJ}"*/)
     private String CNPJ;
 
