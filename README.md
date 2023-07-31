@@ -85,7 +85,8 @@ A aplicação apresenta mensagens de erro amigáveis no caso de exceções e err
 ![](imagens/erro_amigavel.png)
 
 ## Colaboradores
-- Leonardo da Silva Lopes, aluno BCC UFSCar, github: github.com/leonardo-lopes-br
-- Vitor Kasai Tanoue, aluno BCC UFSCar, github: github.com/vitorkasai
-- Maria Luiza Edwards, aluna BCC UFSCar, github: github.com/maluedwards
-- Karen Ketlyn Barcelos, aluna BCC UFSCar, github: github.com/42kkkkkaren
+- Leonardo da Silva Lopes, aluno BCC UFSCar, github: [github.com/leonardo-lopes-br](https://github.com/leonardo-lopes-br)
+- Vitor Kasai Tanoue, aluno BCC UFSCar, github: [github.com/vitorkasai](https://github.com/vitorkasai)
+- Maria Luiza Edwards, aluna BCC UFSCar, github: [github.com/maluedwards](https://github.com/maluedwards)
+- Karen Ketlyn Barcelos, aluna BCC UFSCar, github: [github.com/42kkkkkaren](https://github.com/42kkkkkaren)
+
