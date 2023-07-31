@@ -5,11 +5,56 @@
 	layout:decorate="~{fragments/layout}">
 <head>
 <title th:text="#{admin.crud.clientes}"></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+	/* Custom CSS for the edit and delete icons */
+	/* You can adjust the padding value as needed */
+	td[colspan="2"] a {
+		padding: 8px; /* Adjust the spacing here */
+	}
+
+	/* Set the default icon color to black */
+	td[colspan="2"] a i {
+		color: black;
+	}
+
+	/* Set the icon color to red on :hover for delete */
+	td[colspan="2"] a:hover i.fa-trash-alt {
+		color: red;
+	}
+
+	/* Set the icon color to blue on :hover for edit */
+	td[colspan="2"] a:hover i.fa-edit {
+		color: blue;
+	}
+
+	/* Custom CSS for the link to add a new client */
+	.add-new-client-btn {
+		display: inline-block;
+		padding: 10px 15px;
+		background-color: #333;
+		color: white;
+		text-decoration: none;
+		border: none;
+		border-radius: 4px;
+		margin-top: 10px;
+		margin-right: 10px;
+		margin-bottom: 15px;
+	}
+
+	.add-new-client-btn:hover {
+		background-color: #444; /* Slightly darker shade on hover */
+		color: white;
+		text-decoration: none;
+	}
+</style>
+
 </head>
 <body>
 	<div layout:fragment="content" th:remove="tag">
 		<h1 th:text="#{admin.crud.clientes}"></h1>
-		<a th:href="@{/usuarios/cadastrar}" th:text="#{cliente.crud.adicionarCliente}"></a>
+		<a th:href="@{/usuarios/cadastrar}" class="add-new-client-btn" th:text="#{cliente.crud.adicionarCliente}"></a>
 		<div th:if="${sucess}" class="alert alert-success">
 			<span th:text="${sucess}"></span>
 		</div>
@@ -40,10 +85,10 @@
 					
 					<td colspan="2">
 						<a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}" role="button">
-							<span th:text="#{link.editar.label}" aria-hidden="true"></span>
+							<i class="fas fa-edit"></i>
 						</a>
 						<a th:href="@{/usuarios/excluir/{id}(id=${usuario.id})}" role="button">
-							<span th:text="#{link.excluir.label}" aria-hidden="true"></span>
+							<i class="fas fa-trash-alt"></i>
 						</a>
 					</td>
 					

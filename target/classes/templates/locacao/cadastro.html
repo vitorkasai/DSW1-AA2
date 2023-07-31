@@ -4,8 +4,7 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
     <title th:text="#{cadastro.locacao.cadastrar.titulo}"></title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="/css/cadastroLocacao.css" type="text/css">
 </head>
 
 <body>
@@ -93,7 +92,7 @@
 
              // Atualizar os valores permitidos do input de hora ao alterar a data
         dataInput.addEventListener('change', () => {
-            const selectedDate = new Date(dataInput.value).toISOString().split('T')[0];;
+            const selectedDate = new Date(dataInput.value).toISOString().split('T')[0];
             const currentDate = `${year}-${month}-${day}`;
             console.log("Current date: " + currentDate);
 

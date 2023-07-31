@@ -8,6 +8,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
+<link rel="stylesheet" href="/css/cadastroLocadora.css" type="text/css">
 
 </head>
 
@@ -66,8 +67,9 @@
                         </div>
                     </div>
                     <input type="hidden" th:field="*{role}">
+                    <input type="hidden" id="id" th:field="*{id}" />
+                    
                 </div>
-                <input type="hidden" id="id" th:field="*{id}" />
                 <button type="submit" id="btnSubmit" th:text="#{cadastro.locadora.salvar}"></button>
             </form>
         </div>

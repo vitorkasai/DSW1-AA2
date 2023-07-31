@@ -4,6 +4,9 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
 <title th:text="${usuario.id == null} ? #{cadastro.cliente.cadastrar.titulo} : #{cadastro.cliente.editar.titulo}"></title>
+
+<link rel="stylesheet" href="/css/cadastroCliente.css" type="text/css">
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 </head>
@@ -92,6 +95,13 @@
         $(document).ready(function () {
             $("#CPF").inputmask("999.999.999-99", { "removeMaskOnSubmit": true });
             $("#telefone").inputmask("(99) 99999-9999", { "removeMaskOnSubmit": true });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const today = new Date().toISOString().split('T')[0];
+            console.log("today: " + today);
+            let datNascimento = document.getElementById('dataNascimento');
+            datNascimento.max = today;
         });
     </script>
 </body>

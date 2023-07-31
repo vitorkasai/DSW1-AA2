@@ -5,11 +5,12 @@
 	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
     <title th:text="#{index.message.5}"></title>
+	<link rel="stylesheet" href="/css/locadorasListagem.css"  type="text/css">
 	
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag">
-	<label for="selectCidade" th:text="#{cadastro.locadora.cidade}"></label>
+	<label for="selectCidade" ></label>
 	<select name="selectCidadeListagem" id="selectCidade">
 		<option th:value="allCidades" th:text="#{cadastro.locadora.selecionarCidade}" selected id="allCidades"></option>
 	</select>
