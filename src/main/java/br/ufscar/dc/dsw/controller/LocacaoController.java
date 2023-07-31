@@ -49,7 +49,7 @@ public class LocacaoController {
 	}
 
 	@GetMapping("/cadastrar")
-	public String cadastrar(Locacao locacao, ModelMap model) {
+	public String cadastrar(Locacao locacao, ModelMap model, RedirectAttributes attr) {
 		locacao.setUsuario(this.getUsuario());
 		model.addAttribute("horariosDisponiveis", popularHorasDisponiveis());
 		System.out.println("Passei por /locacoes/cadastrar");
@@ -64,8 +64,25 @@ public class LocacaoController {
 
 
 	@PostMapping("/salvar")
-	public String salvar(Locacao locacao, BindingResult result, RedirectAttributes attr) {
+	public String salvar(Locacao locacao, BindingResult result, RedirectAttributes attr, ModelMap model) {
 		System.out.println("Passei por /locacoes/salvar");
+		for (Locacao locacaoEach: serviceLocacao.buscarTodos()){
+			System.out.println("PRINT DA COMPARACAO:");
+			System.out.println("data locacao iteração:" + locacaoEach.getDataLocacao());
+			System.out.println("data locacao atual:" + locacao.getDataLocacao());
+			
+			System.out.println("horario locacao iteração:" + locacaoEach.getHorarioLocacao());
+			System.out.println("horario locacao atual:" + locacao.getHorarioLocacao());
+
+			System.out.println("Locadora locacao iteração:" + locacaoEach.getLocadora());
+			System.out.println("Locadora locacao atual:" + locacao.getLocadora());
+			
+			if (locacaoEach.getDataLocacao().equals(locacao.getDataLocacao()) && locacaoEach.getHorarioLocacao().equals(locacao.getHorarioLocacao()) && locacaoEach.getLocadora().getId() == locacao.getLocadora().getId()){
+				System.out.println("CHEGOU AQUI NA PORRA DO IF");
+				attr.addFlashAttribute("fail", "Locação já existente");
+				return "redirect:/locacoes/cadastrar";
+			}
+		}
 		serviceLocacao.salvar(locacao);
 		attr.addFlashAttribute("sucess", "Locação inserida com sucesso.");
 		return "user/index";

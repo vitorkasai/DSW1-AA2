@@ -13,7 +13,7 @@
 			<span th:text="#{home.hello}"></span>
 			<span th:inline="text">[[${#httpServletRequest.remoteUser}]]!</span>
 		</h3>
-		<p>Aqui você pode visualizar suas locações.</p>
+		<p th:text="#{locadora.index.texto}"></p>
 		<a th:href="@{/locadora/listar}"><span th:text="#{cliente.visualizaLocacoes}"></span></a><br>
 		<br>
 		<a class="btn btn-primary" type="button"

@@ -10,6 +10,7 @@ public interface ILocacaoService {
 
 	Locacao buscarPorId(Long id);
 
+	List<Locacao> buscarTodos();
 	List<Locacao> buscarTodosUsuario(Usuario u);
     List<Locacao> buscarTodosLocadora(Locadora l);
 

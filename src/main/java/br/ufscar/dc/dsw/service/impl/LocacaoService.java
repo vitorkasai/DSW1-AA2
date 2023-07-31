@@ -17,24 +17,29 @@ import br.ufscar.dc.dsw.service.spec.ILocacaoService;
 public class LocacaoService implements ILocacaoService {
 
 	@Autowired
-	ILocacaoDAO dao;
+	ILocacaoDAO daoLocacao;
 	
 	public void salvar(Locacao locacao) {
-		dao.save(locacao);
+		daoLocacao.save(locacao);
 	}
+	
+	@Transactional(readOnly = true)
+    public List<Locacao> buscarTodos(){
+        return daoLocacao.findAll();
+    }
 
 	@Transactional(readOnly = true)
 	public Locacao buscarPorId(Long id) {
-		return dao.findById(id.longValue());
+		return daoLocacao.findById(id.longValue());
 	}
 
 	@Transactional(readOnly = true)
 	public List<Locacao> buscarTodosUsuario(Usuario u) {
-		return dao.findAllByUsuario(u);
+		return daoLocacao.findAllByUsuario(u);
 	}
     @Transactional(readOnly = true)
 	public List<Locacao> buscarTodosLocadora(Locadora l) {
-		return dao.findAllByLocadora(l);
+		return daoLocacao.findAllByLocadora(l);
 	}
     
 }

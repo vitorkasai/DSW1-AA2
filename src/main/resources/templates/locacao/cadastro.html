@@ -3,12 +3,16 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
-<title th:text="#{cadastro.locacao.cadastrar.titulo}"></title>
+    <title th:text="#{cadastro.locacao.cadastrar.titulo}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 </head>
 
 <body>
     <section>
         <h1 th:text="#{cadastro.locacao.cadastrar.titulo}"></h1>
+        <div th:if="${fail}" class="alert alert-fail" th:text="#{cadastro.locacao.erro}">
+        </div>
         <div id="cadastro">
             <form th:action="@{/locacoes/salvar}" th:object="${locacao}" method="POST" id="formLocacao">
                 <div>
@@ -26,7 +30,7 @@
                         <input type="date" id="dataLocacao" th:field="*{dataLocacao}" th:value="${#dates.format(dataLocacao, 'yyyy-MM-dd')}" autofocus="autofocus" required>
                     </div>
                     <div>
-                        <label for="horarioSelect">Horário de Locação:</label>
+                        <label for="horarioSelect" th:text="#{cadastro.locacao.horarioLocacao}"></label>
                         <select id="horarioSelect" th:field="${locacao.horarioLocacao}" required>
                             <option value="horarioVazio" id="horarioVazio" th:text="#{locacao.cadastro.selecionarHorario}" selected></option>
                             <option th:each="hora : ${horariosDisponiveis}" th:value="${hora}" th:text="${hora}"></option>

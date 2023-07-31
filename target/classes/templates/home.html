@@ -4,7 +4,7 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity"
 	layout:decorate="~{fragments/layout}">
 <head>
-<title>Menu</title>
+<title th:text="#{home.titulo}"></title>
 </head>
 <body>
 	<div layout:fragment="content" th:remove="tag">
