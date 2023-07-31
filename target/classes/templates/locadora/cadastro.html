@@ -65,21 +65,7 @@
                             <span th:errors="*{cidade}"></span>
                         </div>
                     </div>
-                    <div>
-                        <label for="role" th:text="#{cadastro.locadora.papel}"></label>
-                        <select id="role" th:field="*{role}" required>
-
-                            <option th:if="${locadora.role == 'ROLE_LOCADORA'}" value="ROLE_LOCADORA" checked>LOCADORA</option>
-                            <option th:unless="${locadora.role == 'ROLE_LOCADORA'}"value="ROLE_LOCADORA">LOCADORA</option>
-                            
-                            <option th:if="${locadora.role == 'ROLE_ADMIN'}" value="ROLE_ADMIN" checked>ADMIN</option>
-                            <option th:unless="${locadora.role == 'ROLE_ADMIN'}"value="ROLE_ADMIN">ADMIN</option>
-
-                        </select>
-                        <div>
-                            <span th:errors="*{role}"></span>
-                        </div>
-                    </div>
+                    <input type="hidden" th:field="*{role}">
                 </div>
                 <input type="hidden" id="id" th:field="*{id}" />
                 <button type="submit" id="btnSubmit" th:text="#{cadastro.locadora.salvar}"></button>

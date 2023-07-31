@@ -48,6 +48,12 @@ public class Locadora {
 	@OneToMany(mappedBy = "locadora")
 		private List<Locacao> locacoes;
 	
+	public Locadora() {
+		this.role = "ROLE_LOCADORA";
+		this.enabled = true; // Ou false, se desejar que por padrão seja desabilitada
+	}
+
+
     public Long getId() {
 		return id;
 	}
