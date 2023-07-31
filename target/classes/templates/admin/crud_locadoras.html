@@ -21,7 +21,6 @@
 					<th th:text="#{locadora.crud.CNPJ}"></th>
 					<th th:text="#{locadora.crud.nome}"></th>
 					<th th:text="#{locadora.crud.cidade}"></th>
-					<th th:text="#{locadora.crud.role}"></th>
 					<th th:text="#{locadora.crud.operacoes}"></th>
 				</tr>
 			</thead>
@@ -31,8 +30,7 @@
 					<td th:text="${locadora.username}"></td>
 					<td th:text="${locadora.CNPJ}"></td>
 					<td th:text="${locadora.nome}"></td>
-					<td th:text="${locadora.cidade}"></td>
-					<td th:text="${locadora.role}"></td>			
+					<td th:text="${locadora.cidade}"></td>			
 					<td colspan="2">
 						<a th:href="@{/locadoras/editar/{id}(id=${locadora.id})}" role="button">
 							<span th:text="#{link.editar.label}" aria-hidden="true"></span>
