@@ -90,6 +90,38 @@ public class BicicletaMvcApplication {
 			l3.setEnabled(true);
 			locadoraDAO.save(l3);
 
+
+			Locadora l4 = new Locadora();
+			l4.setUsername("locadora4@gmail.com");
+			l4.setPassword(encoder.encode("locadora"));
+			l4.setRole("ROLE_LOCADORA");
+			l4.setCNPJ("71.150.420/0001-43");
+			l4.setNome("Locadora D");
+			l4.setCidade("São Carlos");
+			l4.setEnabled(true);
+			locadoraDAO.save(l4);
+
+
+			Locadora l5 = new Locadora();
+			l5.setUsername("locadora5@gmail.com");
+			l5.setPassword(encoder.encode("locadora"));
+			l5.setRole("ROLE_LOCADORA");
+			l5.setCNPJ("71.120.170/0001-40");
+			l5.setNome("Locadora E");
+			l5.setCidade("Lins");
+			l5.setEnabled(true);
+			locadoraDAO.save(l5);
+
+			Locadora l6 = new Locadora();
+			l6.setUsername("locadora6@gmail.com");
+			l6.setPassword(encoder.encode("locadora"));
+			l6.setRole("ROLE_LOCADORA");
+			l6.setCNPJ("71.120.125/0001-40");
+			l6.setNome("Locadora F");
+			l6.setCidade("Rio Claro");
+			l6.setEnabled(true);
+			locadoraDAO.save(l6);
+
 			//Criando Locacoes Existentes
 			Locacao L1 = new Locacao();
 			L1.setUsuario(u1);
@@ -97,6 +129,20 @@ public class BicicletaMvcApplication {
 			L1.setDataLocacao("2023-08-29");
 			L1.setHorarioLocacao("18:00:00");
 			locacaoDAO.save(L1);
+
+			Locacao L2 = new Locacao();
+			L2.setUsuario(u1);
+			L2.setLocadora(l2);
+			L2.setDataLocacao("2023-10-05");
+			L2.setHorarioLocacao("14:00:00");
+			locacaoDAO.save(L2);
+
+			Locacao L3 = new Locacao();
+			L3.setUsuario(u3);
+			L3.setLocadora(l1);
+			L3.setDataLocacao("2023-11-29");
+			L3.setHorarioLocacao("15:00:00");
+			locacaoDAO.save(L3);
 		};
 	}
 }
