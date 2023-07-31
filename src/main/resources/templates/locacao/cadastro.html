@@ -28,6 +28,7 @@
                     <div>
                         <label for="horarioSelect">Horário de Locação:</label>
                         <select id="horarioSelect" th:field="${locacao.horarioLocacao}" required>
+                            <option value="horarioVazio" id="horarioVazio" th:text="#{locacao.cadastro.selecionarHorario}" selected></option>
                             <option th:each="hora : ${horariosDisponiveis}" th:value="${hora}" th:text="${hora}"></option>
                         </select>
                     </div> 
@@ -45,6 +46,11 @@
             opcaoLocadoraInvalida.disabled = true;
             var selectCidade = document.getElementById('locadorasSelect');
 
+            var opcaoHorarioInvalido = document.getElementById('horarioVazio');
+            opcaoHorarioInvalido.disabled = true;
+            var selectHorario = document.getElementById('horarioSelect');
+
+
             // Adicionar evento de envio do formulário
             var form = document.getElementById('formLocacao');
             var btnSubmit = document.getElementById('btnSubmit');
@@ -53,7 +59,65 @@
                     event.preventDefault(); // Cancela o envio do formulário
                     alert('Por favor, selecione uma locadora válida!');
                 }
+
+                if (selectHorario.value === 'horarioVazio') {
+                    event.preventDefault(); // Cancela o envio do formulário
+                    alert('Por favor, selecione um horário válido!');
+                }
             });
+
+
+            // Adicionar evento de envio do formulário
+            
+
+
+            // Obter o elemento de data
+            const dataInput = document.getElementById('dataLocacao');
+            const horariosDisponiveis = document.getElementById('horarioSelect');
+            console.log('Horarios select: ' + horariosDisponiveis);
+          
+            // Definir a data mínima do input de data
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const minDate = `${year}-${month}-${day}`;
+
+            // Definir a data mínima do input de data
+            dataInput.min = minDate;
+            console.log("Data minima: " + dataInput.min); 
+
+             // Atualizar os valores permitidos do input de hora ao alterar a data
+        dataInput.addEventListener('change', () => {
+            const selectedDate = new Date(dataInput.value).toISOString().split('T')[0];;
+            const currentDate = `${year}-${month}-${day}`;
+            console.log("Current date: " + currentDate);
+
+            // Compare only the year, month, and day
+         
+            console.log("Selected date string: " + selectedDate);
+            
+
+            if (selectedDate === currentDate) {
+                // The selected date is the current date, filter the time slots
+                const currentHour = today.getHours();
+                Array.from(horariosDisponiveis).forEach(option => {
+                    const hour = parseInt(option.value.split(':')[0], 10);
+                    if (hour > currentHour) {
+                        option.style.display = 'block'; // Make the option visible
+                    } else {
+                        option.style.display = 'none'; // Hide the option
+                    }
+                });
+
+            }
+            else {
+                Array.from(horariosDisponiveis.options).forEach(option => {
+                    option.style.display = 'block'; // Make the option visible
+                });
+            } 
+        
+        });
             
     });
     </script>
