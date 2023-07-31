@@ -94,7 +94,7 @@ public class BicicletaMvcApplication {
 			Locacao L1 = new Locacao();
 			L1.setUsuario(u1);
 			L1.setLocadora(l1);
-			L1.setDataLocacao("2022-07-29");
+			L1.setDataLocacao("2023-08-29");
 			L1.setHorarioLocacao("18:00:00");
 			locacaoDAO.save(L1);
 		};
