@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import br.ufscar.dc.dsw.validation.UniqueCNPJ;
+import br.ufscar.dc.dsw.validation.UniqueCPF;
  
 @Entity
 @Table(name = "Usuario")
@@ -27,13 +30,15 @@ public class Usuario{
     @Column(nullable = false, length = 64)
     private String password;
 	
-	@Size(min = 14, max = 14)
+	@Size(min = 11, max = 11)
     @Column(nullable = false, length = 14)
+	@UniqueCPF (message = "{Unique.usuario.CPF}")
     private String CPF;
 
 	@Column(nullable = false, length = 60)
 	private String nome;
 
+	@Size(min = 11, max = 11)
 	@Column(nullable = false, length = 60)
 	private String telefone;
 	
@@ -95,9 +100,10 @@ public class Usuario{
 		return CPF;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
-	}
+	public void setCPF(String CPF) {
+        // Remover pontos e traços do CNPJ
+        this.CPF = CPF != null ? CPF.replaceAll("[^0-9]", "") : null;
+    }
 
 	public String getNome() {
 		return nome;
@@ -111,9 +117,10 @@ public class Usuario{
 		return telefone;
 	}
 
-	public void setTelefone(String telefone){
-		this.telefone = telefone;
-	}
+	public void setTelefone(String telefone) {
+        // Remover pontos e traços do CNPJ
+        this.telefone = telefone != null ? telefone.replaceAll("[^0-9 ]", "") : null;
+    }
 
 	public String getSexo(){
 		return sexo;

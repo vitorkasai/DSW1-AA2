@@ -40,10 +40,10 @@ public class LocacaoController {
 	public List<String> popularHorasDisponiveis() {
 		// Crie a lista de horários disponíveis
 		List<String> horasDisponiveis = new ArrayList<>();
-		horasDisponiveis.add("00:00:00");
-		horasDisponiveis.add("01:00:00");
-		horasDisponiveis.add("02:00:00");
-		// Adicione mais horários conforme necessário...
+		for (int hora = 0; hora < 24; hora++) {
+			String horaStr = String.format("%02d:00:00", hora);
+			horasDisponiveis.add(horaStr);
+		}
 
 		return horasDisponiveis;
 	}

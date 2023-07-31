@@ -65,8 +65,8 @@ public class UsuarioController {
 		
 		System.out.println("Passei por /usuarios/editar");
 
-		if (result.hasErrors()) {
-			return "usuario/cadastro";
+		if (result.getFieldErrorCount() > 1 || result.getFieldError("CPF") == null) {
+			return "user/cadastro";
 		}
 
 		System.out.println(usuario.getPassword());
